@@ -9,7 +9,7 @@ import java.util.List;
 
 @Service
 public class ProductService implements IProductService {
-    private ProductRepository productRepository;
+    private final ProductRepository productRepository;
 
     @Autowired
     public ProductService(ProductRepository productRepository) {
@@ -18,11 +18,11 @@ public class ProductService implements IProductService {
 
     @Override
     public Product save(Product product) {
-        return null;
+        return productRepository.save(product);
     }
 
     @Override
     public List<Product> getAll() {
-        return null;
+        return (List<Product>) productRepository.findAll();
     }
 }
